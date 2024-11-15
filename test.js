@@ -35,7 +35,7 @@
 
     myConnector.getData = function(table, doneCallback) {
         //JSON link based on search result from data.gov
-        var apiCall = "https://nfl-api-data.p.rapidapi.com/nfl-team-listing/v1/data?rapidapi-key=8b2d55889bmshafe33f821c7a253p15f9bejsnd92ff5f9a206"
+        var apiCall = "https://data.cityofnewyork.us/api/views/25th-nujf/rows.json"
         $.getJSON(apiCall, function(resp) {
             //capture the .data array as feat
             var feat = resp.data,
@@ -45,7 +45,7 @@
             //Omit headers for 0-7 for key data elements
             for (var i = 0, len = feat.length; i < len; i++) {
                 tableData.push({
-                    "BIRTH_YEAR": feat[i][8],
+                    "BIRTH_YEAR": feat[i][brth_yr],
                     "GENDER": feat[i][9],
                     "ETHNICITY": feat[i][10],
                     "NAME": feat[i][11],
